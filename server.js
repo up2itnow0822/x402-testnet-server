@@ -282,6 +282,11 @@ app.get('/faucet', (req, res) => {
 
 // ─── Start ────────────────────────────────────────────────────────────────────
 
+// Export for Vercel serverless
+module.exports = app;
+
+// Only listen when run directly (not imported)
+if (require.main === module) {
 app.listen(PORT, () => {
   console.log(`\n🔥 x402 Testnet Server running on port ${PORT}`);
   console.log(`   Network: Base Sepolia (chainId: ${CHAIN_ID})`);
@@ -296,3 +301,4 @@ app.listen(PORT, () => {
   console.log(`   POST /x402/verify       — Verify receipt (free)`);
   console.log(`   GET  /faucet            — Testnet faucet links (free)\n`);
 });
+}
