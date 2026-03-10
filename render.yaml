@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: x402-testnet-server
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: BASE_SEPOLIA_RPC
+        value: https://sepolia.base.org
+      - key: RECEIVER_ADDRESS
+        value: "0xcdd9c98cfd5c8d86ff05a9ed7092a1adb96bf8f7"
